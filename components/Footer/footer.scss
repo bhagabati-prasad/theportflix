@@ -1,0 +1,49 @@
+footer {
+    // background: linear-gradient(90deg, rgba(43, 43, 43, 0.253) 50%, transparent 50%);
+    // background-size: 3px;
+    // background-repeat: repeat-x;
+
+    background: linear-gradient(91deg, #c7c7c70a, #000);
+    background-size: 5px;
+    background-repeat: repeat;
+
+    .footer_brand {
+        font-size: 12vw;
+        margin: 4rem 0;
+    }
+}
+
+.variable-proximity .variable_proximity_single_block_text {
+    display: flex !important;
+    align-items: flex-end;
+    line-height: 1;
+    background: linear-gradient(to bottom, #fff, #fff);
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+
+
+}
+
+.footer_brand_text {
+    .variable-proximity .variable_proximity_single_block_text {
+        &:first-child {
+            background-color: #fff;
+            color: #000;
+            -webkit-text-fill-color: #000;
+            background-clip: unset;
+        }
+    }
+}
+
+
+
+.heart_icon {
+    display: inline-block;
+    width: 200px;
+    aspect-ratio: 1;
+    border-image: radial-gradient(blue 69%, #0000 70%) 84.5%/50%;
+    clip-path: polygon(-41% 0, 50% 91%, 141% 0);
+}

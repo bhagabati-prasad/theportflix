@@ -1,0 +1,56 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* -------- Custom breakpoints -------- */
+@custom-variant max-lg (@media (max-width: 1200px));
+@custom-variant max-md (@media (max-width: 768px));
+@custom-variant max-sm (@media (max-width: 570px));
+
+:root {
+  /* --background: #060010; */
+  --background: #000000;
+  --foreground: #fff;
+  --primary-action-color: #00f;
+  /* --primary-font-family: "Funnel Display", sans-serif; */
+  --primary-font-family: "Inter Tight", sans-serif;
+  /* --primary-font-family: "Inter", sans-serif; */
+  --section-padding: 7rem;
+  --border-radius: 6px;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html.lenis {
+  height: auto;
+}
+
+*::selection {
+  color: rgb(187, 186, 255);
+  background: rgba(75, 28, 170, 0.432);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container {
+  max-width: 95% !important;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--primary-font-family);
+}

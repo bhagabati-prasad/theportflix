@@ -1,0 +1,33 @@
+.timeline_block {
+    ul {
+        li {
+            margin-bottom: 1rem;
+
+            .desc {
+                color: #ccc;
+                transition: all .24s;
+            }
+
+            // .flowing_menu {
+            //     height: 0%;
+            //     opacity: 0;
+            //     visibility: hidden;
+            //     transition: all .24s;
+            // }
+
+            // &:hover {
+            //     .desc {
+            //         opacity: 0;
+            //         visibility: hidden;
+            //         height: 0%;
+            //     }
+
+            //     .flowing_menu {
+            //         opacity: 1;
+            //         visibility: visible;
+            //         height: 100%;
+            //     }
+            // }
+        }
+    }
+}

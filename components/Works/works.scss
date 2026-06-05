@@ -1,0 +1,144 @@
+$image_section_width: 70%;
+
+.works_section {
+
+    .work_section_main {
+        padding-top: 7rem;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+
+        .work_section_contents {
+
+            // .repeated_grid_bg {
+            //     background: linear-gradient(90deg, rgba(136, 136, 136, 0.05) 50%, rgba(0, 0, 0, 0) 50%);
+            //     background: linear-gradient(90deg, #ffffff0d 50%, rgba(0, 0, 0, 0) 50%);
+            //     background-size: 3px;
+            //     background-repeat: repeat;
+            // }
+
+            .single_work_block,
+            .single_work_block_reverse {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                position: relative;
+
+                .hover-3d {
+                    overflow: hidden;
+                    display: flex;
+                    min-width: $image_section_width !important;
+                    width: $image_section_width !important;
+                }
+
+                .img_container {
+                    width: 100%;
+                    height: 500px;
+                    position: relative;
+                    display: flex;
+                    overflow: hidden;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+                        z-index: 1;
+                    }
+
+                    &::after {
+                        content: attr(data-work-count);
+                        position: absolute;
+                        bottom: 4%;
+                        left: 8%;
+                        color: #fff;
+                        font-size: 12rem;
+                        font-weight: 800;
+                        line-height: 1;
+                        opacity: 0.4;
+                        z-index: 2;
+                        backdrop-filter: blur(4px);
+                    }
+
+                    img {
+                        height: 100%;
+                        object-fit: cover;
+                        display: flex;
+                        flex-grow: 1;
+                        transition: all .24s;
+                        position: relative;
+                    }
+                }
+
+                .work_details {
+                    width: 60%;
+                    // background-color: rgba(0, 0, 0, 0.05);
+                    min-height: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    // border-radius: 12px;
+
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    mix-blend-mode: hard-light;
+                    // backdrop-filter: blur(2px);
+                    z-index: 4;
+                    // &::before {
+                    //     content: '';
+                    //     position: absolute;
+                    //     bottom: 0;
+                    //     left: 0;
+                    //     height: 1px;
+                    //     width: 20%;
+                    //     background-color: #fff;
+                    //     opacity: 0.4;
+                    // }
+
+                    .work_title {
+                        font-size: 4rem;
+                        font-weight: 200;
+                        text-transform: uppercase;
+                        text-shadow: 0 0 2px #fff;
+
+                        @media screen and (max-width:576px) {
+                            font-size: 2rem;
+                        }
+                    }
+
+                    .work_desc {
+                        font-size: 1.1rem;
+                        font-weight: 300;
+                        letter-spacing: 0.4px;
+                        line-height: 1.5;
+                        text-shadow: 0 0 2px #fff;
+                    }
+                }
+            }
+
+            .single_work_block_reverse {
+                flex-direction: row-reverse;
+
+                .img_container {
+                    &::before {
+                        background: linear-gradient(-90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+                    }
+
+                    &::after {
+                        left: unset;
+                        right: 8%;
+                    }
+                }
+
+                .work_details {
+                    right: unset;
+                    left: 0;
+                }
+            }
+        }
+    }
+}
