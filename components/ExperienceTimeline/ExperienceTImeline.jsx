@@ -62,6 +62,7 @@ function ExperienceTimeline() {
             <span className="italic">{slide?.city}</span>
           </h1>
           <h2 className="timeline_sub_title mb-4 text-2xl">{slide?.role}</h2>
+          <p className="mb-8">Apr 2022 - Jun 2026</p>
           <ul>
             {slide?.description?.map((item, index) => (
               <li key={index}>
@@ -93,10 +94,7 @@ function ExperienceTimeline() {
           <h2 className="timeline_sub_title mb-4 text-2xl">
             Freelance Web Developer
           </h2>
-          <p className="mb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-            dolore.
-          </p>
+          <p className="mb-8">Oct 2020 - Mar 2022</p>
           <div className="grid grid-cols-2 gap-4">
             <img
               src="https://assets.aceternity.com/templates/startup-1.webp"
@@ -130,10 +128,7 @@ function ExperienceTimeline() {
             &nbsp;,&nbsp;
             <span className="italic">Bhubaneswar</span>
           </h2>
-          <p className="mb-8">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-            dolore.
-          </p>
+          <p className="mb-8">Aug 2019 - Mar 2022</p>
         </div>
       ),
     },

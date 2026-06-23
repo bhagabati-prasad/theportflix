@@ -4,18 +4,51 @@ import GradientText from "@/components/GradientText"
 
 import "./hero-section.scss"
 import RotatingText from "../RotatingText"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  AtIcon,
+  Call02Icon,
+  Github01Icon,
+  InstagramIcon,
+  Linkedin01Icon,
+} from "@hugeicons/core-free-icons"
+import Link from "next/link"
 
 const HeroSection = () => {
   const profile = {
     name: "Prasad B.",
     designation: "Full stack Engineer",
-    contact: {
-      mobile: "+91 8249194704",
-      email: "bhagabatiprasada@gmail.com",
-      instagram: "bhagabati_prasad",
-      github: "bhagabati-prasad",
-      linkedIn: "bhagabati-prasad",
-    },
+    contact: [
+      { id: 1, icon: Call02Icon, label: "mobile", value: "+91 8249194704" },
+      {
+        id: 2,
+        icon: AtIcon,
+        label: "email",
+        value: "bhagabatiprasada@gmail.com",
+        link: "mailto:bhagabatiprasada@gmail.com",
+      },
+      {
+        id: 3,
+        icon: InstagramIcon,
+        label: "instagram",
+        value: "bhagabati_prasad",
+        link: "https://www.instagram.com/i.bhagabati_prasad",
+      },
+      {
+        id: 4,
+        icon: Github01Icon,
+        label: "github",
+        value: "bhagabati-prasad",
+        link: "https://github.com/bhagabati-prasad",
+      },
+      {
+        id: 5,
+        icon: Linkedin01Icon,
+        label: "linkedIn",
+        value: "bhagabati-prasad",
+        link: "https://www.linkedin.com/in/bhagabati-prasad",
+      },
+    ],
   }
 
   return (
@@ -77,30 +110,24 @@ const HeroSection = () => {
               </h2>
             </div>
             <div className="hero_secondary_row flex w-full flex-wrap gap-5">
-              <div className="link_box flex min-w-1/6 flex-col max-md:w-2/6 max-sm:w-full">
-                <span className="hero_label">Phone Number</span>
-                <span className="hero_value">{profile?.contact?.mobile}</span>
-              </div>
-              <div className="link_box flex min-w-1/6 flex-col max-md:w-2/6 max-sm:w-full">
-                <span className="hero_label">E-mail</span>
-                <span className="hero_value">{profile?.contact?.email}</span>
-              </div>
-              <div className="link_box flex min-w-1/6 flex-col max-md:w-2/6 max-sm:w-full">
-                <span className="hero_label">Github</span>
-                <span className="hero_value">{profile?.contact?.github}</span>
-              </div>
-              <div className="link_box flex min-w-1/6 flex-col max-md:w-2/6 max-sm:w-full">
-                <span className="hero_label">Instagram</span>
-                <span className="hero_value">
-                  {profile?.contact?.instagram}
-                </span>
-              </div>
-              <div className="link_box flex min-w-1/6 flex-col max-md:w-2/6 max-sm:w-full">
-                <span className="hero_label">LinkedIn</span>
-                <span className="hero_value">
-                  {profile?.contact?.linkedIn}.
-                </span>
-              </div>
+              {profile?.contact &&
+                profile?.contact?.map((item) => (
+                  <Link
+                    key={item?.id}
+                    href={`${item?.link}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link_box flex min-w-1/6 flex-col max-md:w-2/6 max-sm:w-full"
+                  >
+                    <span className="hero_label">
+                      <span className="label_icon">
+                        <HugeiconsIcon icon={item?.icon} width={16} />
+                      </span>
+                      <span>{item?.label}</span>
+                    </span>
+                    <span className="hero_value">{item?.value}</span>
+                  </Link>
+                ))}
             </div>
           </div>
         </div>

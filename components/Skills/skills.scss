@@ -16,9 +16,11 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background: rgb(39, 39, 255);
+        background: rgba(63, 172, 231, 0.4);
         box-shadow: inset 16px 17px 27px rgba(0, 0, 0, 0.05),
-            inset -16px -16px 27px blue;
+            inset -13px -13px 27px rgba(63, 172, 231, 0.4),
+            inset -16px -16px 27px rgba(63, 172, 231, 0.9);
+        backdrop-filter: blur(4px);
         clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
         z-index: -1;
     }
@@ -41,12 +43,14 @@
     .honeycomb_box_content {
         filter: drop-shadow(-2px -3px 10px rgba(0, 0, 0, 0.1));
         position: relative;
-        transition: transform 0.54s;
         letter-spacing: 0.5px;
+        color: #fff;
+        transition: transform 0.54s, color 0.3s ease;
     }
 
     &:hover::after,
     &:hover .honeycomb_box_content {
+        color: rgba(63, 172, 231, 1);
         transform: translate(18px, -4px);
     }
 }
@@ -57,6 +61,11 @@
     // background-size: 3px;
     // background-repeat: repeat;
     overflow: hidden;
+
+    .skill_domain_label {
+        color: rgba(63, 172, 231, 1);
+        backdrop-filter: blur(4px);
+    }
 }
 
 #blob {

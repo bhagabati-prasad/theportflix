@@ -20,7 +20,9 @@ const Footer = () => {
 
           <div className="mb-8 grid grid-cols-12">
             <p className="col-span-4 text-4xl tracking-[0.4px] max-md:col-span-6 max-sm:col-span-12">
-              <Quote />
+              <span className="text-[#3face7]">
+                <Quote />
+              </span>
               Build things that matter, even when no one is watching.
             </p>
 

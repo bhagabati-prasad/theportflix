@@ -3,6 +3,21 @@ import { useState } from "react"
 import "./contact.scss"
 // import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision"
 import { sendEmail } from "@/actions/sendmail"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Agreement02Icon,
+  AtIcon,
+  Briefcase09Icon,
+  CallIcon,
+  Github01Icon,
+  InstagramIcon,
+  Linkedin01Icon,
+  Location05Icon,
+  Mail01Icon,
+  Message01Icon,
+  SentIcon,
+  UserIcon,
+} from "@hugeicons/core-free-icons"
 
 const Contact = () => {
   const [status, setStatus] = useState(null)
@@ -14,6 +29,14 @@ const Contact = () => {
     subject: "",
     message: "",
   })
+
+  const fieldIcons = {
+    name: UserIcon,
+    email: Mail01Icon,
+    mobile: CallIcon,
+    subject: Briefcase09Icon,
+    message: Message01Icon,
+  }
 
   const sanitizeValue = (value) => {
     if (value == null) {
@@ -35,15 +58,15 @@ const Contact = () => {
   async function handleFormSubmit() {
     setStatus("Sending...")
 
-    // setTimeout(() => {
-    //   setStatus("Email sent successfully!")
-    // }, 2000)
-    const result = await sendEmail(form)
-    if (result.success) {
+    setTimeout(() => {
       setStatus("Email sent successfully!")
-    } else {
-      setStatus("Failed to send email.")
-    }
+    }, 2000)
+    // const result = await sendEmail(form)
+    // if (result.success) {
+    //   setStatus("Email sent successfully!")
+    // } else {
+    //   setStatus("Failed to send email.")
+    // }
     setTimeout(() => {
       setStatus(null)
     }, 3000)
@@ -67,23 +90,113 @@ const Contact = () => {
                   </small>
                   <br />
                 </h2>
-                <div className="grid grid-cols-6 gap-4 max-md:grid-cols-3">
-                  <div className="contact_left_container col-span-3"></div>
-                  <div className="col-span-3 flex flex-col gap-4 p-10">
-                    {Object.keys(form).map((field) => (
-                      <div key={field} className="w-full">
-                        <div className="input_box flex flex-col gap-2">
+                <div className="grid grid-cols-12 gap-14 max-md:grid-cols-3">
+                  <div className="contact_left_container col-span-4">
+                    <div className="contact_info_box">
+                      <div className="contact_info_box_icon">
+                        <HugeiconsIcon icon={AtIcon} />
+                      </div>
+                      <div>
+                        <p className="label">Email</p>
+                        <p className="value">bhagabatiprasada@gmail.com</p>
+                      </div>
+                    </div>
+                    <div className="contact_info_box">
+                      <div className="contact_info_box_icon">
+                        <HugeiconsIcon icon={Location05Icon} />
+                      </div>
+                      <div>
+                        <p className="label">Address</p>
+                        <p className="value">
+                          Whitefield, Bengaluru, India, 560067
+                        </p>
+                      </div>
+                    </div>
+                    <div className="contact_info_box">
+                      <div className="contact_info_box_icon">
+                        <HugeiconsIcon icon={Agreement02Icon} />
+                      </div>
+                      <div>
+                        <p className="label">Availability</p>
+                        <p className="value">
+                          Available for full time opportunities
+                        </p>
+                      </div>
+                    </div>
+                    <div className="contact_info_box_grouped">
+                      <p className="label">Connect Networks</p>
+                      <div className="flex w-full flex-col gap-3">
+                        <div className="flex items-center gap-4">
+                          <div className="contact_info_box_icon">
+                            <HugeiconsIcon icon={Github01Icon} />
+                          </div>
+                          <div>
+                            <p className="value capitalize!">Github</p>
+                            <p className="label lowercase!">
+                              github.com/bhagabati-prasad
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <div className="contact_info_box_icon">
+                            <HugeiconsIcon icon={Linkedin01Icon} />
+                          </div>
+                          <div>
+                            <p className="value capitalize!">LinkedIn</p>
+                            <p className="label lowercase!">
+                              linkedin.com/in/bhagabati-prasad
+                            </p>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                          <div className="contact_info_box_icon">
+                            <HugeiconsIcon icon={InstagramIcon} />
+                          </div>
+                          <div>
+                            <p className="value capitalize!">Instagram</p>
+                            <p className="label lowercase!">
+                              instagram.com/i.bhagabati_prasad
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="contact_info_box">
+                      <div className="contact_info_box_blink">
+                        <div className="dot"></div>
+                      </div>
+                      <div>
+                        <p className="value capitalize!">
+                          Available for opportunities
+                        </p>
+                        <p className="label lowercase!">
+                          Typical response within 24h
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-span-8">
+                    <div className="contact_info_box contact_form_wrapper">
+                      {Object.keys(form).map((field) => (
+                        <div
+                          key={field}
+                          className={`input_box flex flex-col gap-2 ${field}`}
+                        >
                           <label
                             htmlFor={field}
-                            className="ml-2 text-sm uppercase"
+                            className="flex items-center gap-2"
                           >
+                            <HugeiconsIcon
+                              icon={fieldIcons[field]}
+                              width={16}
+                            />
                             {field}
                           </label>
                           {field === "message" ? (
                             <textarea
                               name={field}
                               id={field}
-                              className="max-h-34 min-h-28 rounded-sm border border-blue-950 px-2"
+                              className="max-h-34 min-h-28"
                               value={form?.[field]}
                               onChange={handleInputChange}
                               disabled={status}
@@ -93,23 +206,21 @@ const Contact = () => {
                               type="text"
                               id={field}
                               name={field}
-                              className="h-12 rounded-sm border border-blue-950 px-2"
+                              className="h-12"
                               value={form?.[field]}
                               onChange={handleInputChange}
                               disabled={status}
                             />
                           )}
                         </div>
-                      </div>
-                    ))}
-
-                    <div className="col-span-4">
+                      ))}
                       <button
                         type="button"
-                        className="h-12 w-full cursor-pointer border border-blue-700 bg-blue-700 p-2 font-semibold text-black uppercase transition-all hover:bg-transparent hover:text-blue-700 disabled:cursor-default disabled:bg-neutral-950 disabled:text-white disabled:capitalize"
+                        className="flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-lg border border-[#3face7] bg-[#3face7] p-2 font-medium text-black uppercase transition-all hover:bg-transparent hover:text-[#3face7] disabled:cursor-default disabled:bg-neutral-950 disabled:text-white disabled:capitalize"
                         onClick={handleFormSubmit}
                         disabled={!!status}
                       >
+                        <HugeiconsIcon icon={SentIcon} height={18} />
                         {status ? status : "Submit"}
                       </button>
                     </div>

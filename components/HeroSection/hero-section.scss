@@ -59,11 +59,43 @@ section.hero_section {
             .hero_secondary_row {
 
                 .link_box {
+                    position: relative;
                     border-radius: var(--border-radius);
                     padding: 0.5rem 1rem;
                     background-color: rgba(0, 0, 0, 0.05);
-                    border: 1px solid #4c2f624a;
+                    border: 1px solid;
+                    border-color: rgba(63, 172, 231, 0.1);
                     backdrop-filter: blur(4px);
+                    cursor: pointer;
+                    transition: border-color 0.3s;
+
+                    .hero_label {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        color: #8c8c8c;
+                        font-size: 13px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        letter-spacing: 0.4px;
+
+                        .label_icon {
+                            color: #3face7;
+                        }
+                    }
+
+                    .hero_value {
+                        color: #fff;
+                        transition: color 0.3s ease;
+                    }
+
+                    &:hover {
+                        border-color: rgba(63, 172, 231, 0.4);
+
+                        .hero_value {
+                            color: #3face7;
+                        }
+                    }
                 }
             }
 

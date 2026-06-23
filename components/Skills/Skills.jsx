@@ -168,7 +168,9 @@ const Skills = () => {
             {Object.entries(skills).map(([domain, skillsets], index) => (
               <div key={index} className="grid grid-cols-12">
                 <div className="col-span-1 flex -rotate-90 items-center justify-center">
-                  <h4 className="h-10 text-sm uppercase">{domain}</h4>
+                  <h4 className="skill_domain_label h-10 text-sm uppercase">
+                    {domain}
+                  </h4>
                 </div>
                 <div className="col-span-11 flex flex-wrap items-center justify-start">
                   {skillsets?.map((skill, skillIndex) => (

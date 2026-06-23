@@ -96,7 +96,7 @@ const AboutMe = () => {
                         height: "100%",
                         display: "grid",
                         placeItems: "center",
-                        backgroundColor: "#29076f",
+                        backgroundColor: "#3face785",
                       }}
                     >
                       <p

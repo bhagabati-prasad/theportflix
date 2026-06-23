@@ -7,6 +7,7 @@ import Skills from "@/components/Skills/Skills"
 import AboutMe from "@/components/AboutMe/AboutMe"
 import HeroSection from "@/components/HeroSection/HeroSection"
 import ExperienceTimeline from "@/components/ExperienceTimeline/ExperienceTImeline"
+import Blogs from "@/components/Blogs/Blogs"
 
 export const metadata = {
   title: "Home Page - My Awesome Portfolio Website",
@@ -29,10 +30,13 @@ export default function Page() {
       <Works />
 
       {/* Experience */}
-      {/* <ExperienceTimeline /> */}
+      <ExperienceTimeline />
+
+      {/* Blogs */}
+      <Blogs />
 
       {/* Contact */}
-      {/* <Contact /> */}
+      <Contact />
 
       {/* Footer */}
       <Footer />

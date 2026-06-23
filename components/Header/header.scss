@@ -4,6 +4,13 @@ header {
     backdrop-filter: blur(150px);
     background-size: 3px;
     background-repeat: repeat;
+    border-bottom: 1px solid;
+    border-color: rgba(63, 172, 231, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: rgba(63, 172, 231, 0.4);
+    }
 
     .brand {
         position: relative;
