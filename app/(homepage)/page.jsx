@@ -29,10 +29,10 @@ export default function Page() {
       <Works />
 
       {/* Experience */}
-      <ExperienceTimeline />
+      {/* <ExperienceTimeline /> */}
 
       {/* Contact */}
-      <Contact />
+      {/* <Contact /> */}
 
       {/* Footer */}
       <Footer />

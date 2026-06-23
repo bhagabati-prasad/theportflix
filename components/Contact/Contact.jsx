@@ -1,8 +1,8 @@
 "use client"
 import { useState } from "react"
 import "./contact.scss"
-import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision"
-// import { sendEmail } from "@/actions/sendmail"
+// import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision"
+import { sendEmail } from "@/actions/sendmail"
 
 const Contact = () => {
   const [status, setStatus] = useState(null)
@@ -35,15 +35,15 @@ const Contact = () => {
   async function handleFormSubmit() {
     setStatus("Sending...")
 
-    setTimeout(() => {
-      setStatus("Email sent successfully!")
-    }, 2000)
-    // const result = await sendEmail(form)
-    // if (result.success) {
+    // setTimeout(() => {
     //   setStatus("Email sent successfully!")
-    // } else {
-    //   setStatus("Failed to send email.")
-    // }
+    // }, 2000)
+    const result = await sendEmail(form)
+    if (result.success) {
+      setStatus("Email sent successfully!")
+    } else {
+      setStatus("Failed to send email.")
+    }
     setTimeout(() => {
       setStatus(null)
     }, 3000)
@@ -51,7 +51,7 @@ const Contact = () => {
 
   return (
     <>
-      <BackgroundBeamsWithCollision>
+      <>
         <section className="contact_me_section">
           <div className="container mx-auto py-(--section-padding)">
             <div className="grid grid-cols-12">
@@ -119,7 +119,7 @@ const Contact = () => {
             </div>
           </div>
         </section>
-      </BackgroundBeamsWithCollision>
+      </>
     </>
   )
 }

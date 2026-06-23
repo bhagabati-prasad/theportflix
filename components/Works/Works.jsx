@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { SingleWorkBlock } from "./SingleWorkBlock"
 import "./works.scss"
-import ThreeDMarqueeDemo from "../3d-marquee-demo"
 
 const Works = () => {
   const listOfWorks = [
@@ -32,7 +31,7 @@ const Works = () => {
   return (
     <section className="works_section container mx-auto pb-(--section-padding)">
       <div className="sticky top-16 z-[-1] opacity-80">
-        <ThreeDMarqueeDemo />
+        {/* <ThreeDMarqueeDemo /> */}
       </div>
 
       <div className="work_section_main grid grid-cols-12">

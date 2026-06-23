@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         /> */}
       </head>
       <body>
-        <SmoothScroll />
+        {/* <SmoothScroll /> */}
         <ClickSpark
           sparkColor="#fff"
           sparkSize={10}
