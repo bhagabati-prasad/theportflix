@@ -112,6 +112,10 @@
         .input_box {
             width: 48%;
 
+            @media screen and (max-width: 570px) {
+                width: 100%;
+            }
+
             &.subject,
             &.message {
                 width: 100%;

@@ -163,7 +163,7 @@ export function MenuItem({
         {description && (
           <span
             style={{
-              fontSize: "0.85rem",
+              fontSize: "0.65rem",
               textTransform: "capitalize",
               color: "#fff",
               fontWeight: 300,

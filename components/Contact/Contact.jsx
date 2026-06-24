@@ -90,8 +90,8 @@ const Contact = () => {
                   </small>
                   <br />
                 </h2>
-                <div className="grid grid-cols-12 gap-14 max-md:grid-cols-3">
-                  <div className="contact_left_container col-span-4">
+                <div className="container mx-auto grid grid-cols-12 gap-8">
+                  <div className="contact_left_container col-span-4 max-lg:col-span-12">
                     <div className="contact_info_box">
                       <div className="contact_info_box_icon">
                         <HugeiconsIcon icon={AtIcon} />
@@ -175,7 +175,7 @@ const Contact = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-span-8">
+                  <div className="col-span-8 max-lg:col-span-12">
                     <div className="contact_info_box contact_form_wrapper">
                       {Object.keys(form).map((field) => (
                         <div

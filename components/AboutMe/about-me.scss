@@ -197,6 +197,16 @@ section.details_container {
                 letter-spacing: 0.5px;
                 transform: rotate(-90deg);
             }
+
+            // @media screen and (max-width: 570px) {
+            //     &>span {
+            //         font-size: 12rem;
+            //     }
+
+            //     &>div {
+            //         font-size: 2rem;
+            //     }
+            // }
         }
     }
 }

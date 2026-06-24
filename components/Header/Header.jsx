@@ -1,6 +1,5 @@
 "use client"
 
-import { Menu } from "lucide-react"
 import "./header.scss"
 
 const Header = () => {
@@ -11,8 +10,33 @@ const Header = () => {
           <span>THE</span>
           <span>PORTFLiX</span>
         </div>
-        <div className="nav_menu">
-          <Menu />
+        <div className="nav_menu_btn">
+          <label htmlFor="menu_check" className="nav_menu">
+            <span className="menu_bar"></span>
+            <span className="menu_bar"></span>
+            <input id="menu_check" type="checkbox" />
+          </label>
+
+          <div className="menu_contents">
+            <div className="menu_box">
+              <h2>Home</h2>
+            </div>
+            <div className="menu_box">
+              <h2>About</h2>
+            </div>
+            <div className="menu_box">
+              <h2>Works</h2>
+            </div>
+            <div className="menu_box">
+              <h2>Experience</h2>
+            </div>
+            <div className="menu_box">
+              <h2>Blogs</h2>
+            </div>
+            <div className="menu_box">
+              <h2>Contact</h2>
+            </div>
+          </div>
         </div>
       </div>
     </header>

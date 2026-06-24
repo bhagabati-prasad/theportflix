@@ -39,7 +39,7 @@ const AboutMe = () => {
       <section className="details_container container mx-auto pb-(--section-padding)">
         <div className="grid w-full grid-cols-3 gap-5 max-md:grid-cols-1">
           <div className="iam_image col-span-1">
-            <img src="images/IAM.png" alt="" />
+            <img src="images/IAM.png" alt="Iam" loading="lazy" />
             <div className="social_icons_container">
               <SocialMediaDock />
             </div>
@@ -72,7 +72,7 @@ const AboutMe = () => {
                   type="button"
                   className="h-14 w-52 cursor-pointer rounded-full bg-white font-semibold text-black uppercase"
                 >
-                  Download 
+                  Download
                 </button>
               </div> */}
               <div className="col-span-1 cursor-pointer">
@@ -85,7 +85,11 @@ const AboutMe = () => {
                       // download={true}
                       className="details_pixel_primary_elem"
                     >
-                      <img src="images/resume-orig.png" alt="Resume" />
+                      <img
+                        src="images/resume-orig.png"
+                        alt="Resume"
+                        loading="lazy"
+                      />
                     </Link>
                   }
                   secondContent={

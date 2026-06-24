@@ -21,6 +21,7 @@ export const SingleWorkBlock = ({ index, work }) => {
                 src={image}
                 alt={work?.title}
                 style={{ width: `${100 / work?.images?.length}%` }}
+                loading="lazy"
               />
             ))}
         </div>

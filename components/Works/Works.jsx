@@ -59,7 +59,7 @@ const Works = () => {
       <div className="mt-10 flex justify-center">
         <Link
           href="/"
-          className="border border-white px-8 py-4 transition-all hover:border-blue-600 hover:text-blue-600!"
+          className="hover:text-[#3face7! border border-white px-8 py-4 transition-all hover:border-[#3face7]"
         >
           View all projects
         </Link>

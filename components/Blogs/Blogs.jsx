@@ -46,7 +46,7 @@ const Blogs = () => {
                 veritatis dolore ab officiis at minima maiores maxime id
                 voluptas veniam!
               </h2>
-              <div className="grid grid-cols-3 gap-4 max-md:grid-cols-2">
+              <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
                 {blogs &&
                   Array.isArray(blogs) &&
                   blogs?.map((blog) => (
@@ -58,7 +58,11 @@ const Blogs = () => {
                         <div className="blog_category absolute top-4 left-4 rounded-lg px-2 py-1 text-sm">
                           Architecture
                         </div>
-                        <img src={`images/${blog?.image}`} alt="" />
+                        <img
+                          src={`images/${blog?.image}`}
+                          alt="main image"
+                          loading="lazy"
+                        />
                       </div>
                       <div className="blog_content flex flex-col gap-3 px-5 py-4">
                         <p className="blog_timestamp flex items-center gap-2 text-sm opacity-50">
