@@ -119,7 +119,10 @@ const Skills = () => {
   }, [])
 
   return (
-    <section className="skills_container container mx-auto pb-(--section-padding)">
+    <section
+      className="skills_container container mx-auto pb-(--section-padding)"
+      id="skills_section"
+    >
       <div className="grid grid-cols-12">
         <div className="col-span-2 max-md:col-span-12">
           <h2 className="section_heading mt-2">Skills</h2>

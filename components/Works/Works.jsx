@@ -29,7 +29,10 @@ const Works = () => {
   ]
 
   return (
-    <section className="works_section container mx-auto pb-(--section-padding)">
+    <section
+      className="works_section container mx-auto pb-(--section-padding)"
+      id="works_section"
+    >
       <div className="sticky top-16 z-[-1] opacity-80">
         {/* <ThreeDMarqueeDemo /> */}
       </div>
@@ -40,8 +43,8 @@ const Works = () => {
         </div>
         <div className="col-span-10 max-md:col-span-12">
           <h2 className="section_main_desc mb-14 w-2/3 max-md:w-full">
-            Scalable, secure systems built with clean architecture and practical
-            engineering principles.
+            Production-grade systems engineered for scale, reliability, and
+            real-world impact.
           </h2>
 
           {/* START: Main works block container */}

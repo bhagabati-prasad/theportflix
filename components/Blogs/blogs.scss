@@ -23,8 +23,10 @@
         }
 
         .blog_category {
-            color: rgba(63, 172, 231, 1);
-            background-color: rgba(63, 172, 231, 0.114);
+            color: #3face7;
+            // background-color: rgba(63, 172, 231, 0.114);
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #3face7;
             z-index: 2;
         }
 
@@ -43,14 +45,14 @@
             font-weight: 200;
         }
 
-        a.read_article {
+        .read_article {
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 16px;
             // color: var(--primary-action-color);
             color: rgba(63, 172, 231, 1);
-            margin-top: 4px;
+            margin-top: 1rem;
         }
     }
 

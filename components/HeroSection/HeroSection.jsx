@@ -53,7 +53,10 @@ const HeroSection = () => {
 
   return (
     <>
-      <section className="hero_section relative pb-(--section-padding)">
+      <section
+        className="hero_section relative pb-(--section-padding)"
+        id="hero_section"
+      >
         <div className="canvas_background">
           <DarkVeil
             hueShift={0}

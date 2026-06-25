@@ -18,6 +18,7 @@ import {
   SentIcon,
   UserIcon,
 } from "@hugeicons/core-free-icons"
+import Link from "next/link"
 
 const Contact = () => {
   const [status, setStatus] = useState(null)
@@ -59,7 +60,7 @@ const Contact = () => {
     setStatus("Sending...")
 
     setTimeout(() => {
-      setStatus("Email sent successfully!")
+      setStatus("Message dropped!")
     }, 2000)
     // const result = await sendEmail(form)
     // if (result.success) {
@@ -75,7 +76,7 @@ const Contact = () => {
   return (
     <>
       <>
-        <section className="contact_me_section">
+        <section className="contact_me_section" id="contact_section">
           <div className="container mx-auto py-(--section-padding)">
             <div className="grid grid-cols-12">
               <div className="col-span-2 max-md:col-span-12">
@@ -221,8 +222,20 @@ const Contact = () => {
                         disabled={!!status}
                       >
                         <HugeiconsIcon icon={SentIcon} height={18} />
-                        {status ? status : "Submit"}
+                        {status ? status : "Drop a message"}
                       </button>
+
+                      <small>
+                        If you're facing issue in submitting the form, kindly
+                        send an email to &nbsp;
+                        <Link
+                          href="mailto:bhagabatiprasada@gmail.com"
+                          className="underline"
+                        >
+                          bhagabatiprasada@gmail.com
+                        </Link>
+                        .
+                      </small>
                     </div>
                   </div>
                 </div>

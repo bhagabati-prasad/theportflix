@@ -32,13 +32,15 @@ export const Timeline = ({ data }) => {
       <div className="grid grid-cols-12">
         <div className="col-span-2 max-md:col-span-12">
           <h2 className="section_heading mt-2">
-            Work <br /> Experience
+            {/* Work <br /> Experience */}
+            Professional
+            <br /> Journey
           </h2>
         </div>
         <div className="col-span-10 max-md:col-span-12">
-          <h2 className="section_main_desc mb-8 w-2/3 max-md:w-full">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci
-            amet.
+          <h2 className="section_main_desc mb-8 w-3/4 max-md:w-full">
+            A snapshot of my journey as a Full Stack Developer, building
+            scalable applications and solving real-world business challenges.
           </h2>
         </div>
       </div>

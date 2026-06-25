@@ -7,34 +7,56 @@ import {
 } from "@hugeicons/core-free-icons"
 import Link from "next/link"
 
-const Blogs = () => {
-  const blogs = [
-    {
-      id: 1,
-      image: "blog-bg1.png",
-      title: "Building High-Performance FastAPI Services at Scale",
-      shortDescription:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum maiores dolorem adipisci aperiam incidunt error sapiente assumenda.",
-    },
-    {
-      id: 2,
-      image: "blog-bg2.png",
-      title: "Building High-Performance FastAPI Services at Scale",
-      shortDescription:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum maiores dolorem adipisci aperiam incidunt error sapiente assumenda.",
-    },
-    {
-      id: 3,
-      image: "blog-bg3.png",
-      title: "Building High-Performance FastAPI Services at Scale",
-      shortDescription:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum maiores dolorem adipisci aperiam incidunt error sapiente assumenda.",
-    },
+const calculateTimeAgo = (dateString) => {
+  const date = new Date(dateString)
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000)
+
+  const intervals = [
+    { label: "year", seconds: 31536000 },
+    { label: "month", seconds: 2592000 },
+    { label: "day", seconds: 86400 },
+    { label: "hour", seconds: 3600 },
+    { label: "minute", seconds: 60 },
+    { label: "second", seconds: 1 },
   ]
+
+  for (const interval of intervals) {
+    const count = Math.floor(seconds / interval.seconds)
+    if (count >= 1) {
+      return `${count} ${interval.label}${count > 1 ? "s" : ""} ago`
+    }
+  }
+
+  return "just now"
+}
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString)
+
+  const month = date.toLocaleString("en-US", { month: "short" })
+
+  return `${month} ${date.getDate()}, ${date.getFullYear()}`
+}
+
+const Blogs = async () => {
+  let blogs = []
+
+  const username = "olawanle_joel"
+  const data = await fetch(`https://dev.to/api/articles?username=${username}`, {
+    cache: "force-cache",
+    next: {
+      revalidate: 3600,
+    },
+  })
+  const posts = await data.json()
+
+  if (posts && Array.isArray(posts)) {
+    blogs = posts.slice(0, 6)
+  }
 
   return (
     <>
-      <section className="blogs_section">
+      <section className="blogs_section" id="blogs_section">
         <div className="container mx-auto py-(--section-padding)">
           <div className="grid grid-cols-12">
             <div className="col-span-2 max-md:col-span-12">
@@ -42,9 +64,8 @@ const Blogs = () => {
             </div>
             <div className="col-span-10 max-md:col-span-12">
               <h2 className="section_main_desc mb-8 w-3/4 max-md:w-full">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius
-                veritatis dolore ab officiis at minima maiores maxime id
-                voluptas veniam!
+                Deep-dives into architecture decisions, performance patterns,
+                and hard-won engineering lessons.
               </h2>
               <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-sm:grid-cols-1">
                 {blogs &&
@@ -52,42 +73,54 @@ const Blogs = () => {
                   blogs?.map((blog) => (
                     <div
                       key={blog?.id}
-                      className="blog_card col-span-1 overflow-hidden rounded-xl"
+                      className="blog_card col-span-1 flex flex-col overflow-hidden rounded-xl"
                     >
                       <div className="img_wraper">
                         <div className="blog_category absolute top-4 left-4 rounded-lg px-2 py-1 text-sm">
                           Architecture
                         </div>
                         <img
-                          src={`images/${blog?.image}`}
+                          src={blog?.cover_image}
                           alt="main image"
                           loading="lazy"
                         />
                       </div>
-                      <div className="blog_content flex flex-col gap-3 px-5 py-4">
+                      <div className="blog_content flex flex-1 flex-col gap-3 px-5 py-4">
                         <p className="blog_timestamp flex items-center gap-2 text-sm opacity-50">
                           <HugeiconsIcon icon={Clock4Icon} height={12} />
-                          <span>8 min ago</span>
+                          <span>{calculateTimeAgo(blog?.published_at)}</span>
                           &nbsp;
-                          <span>Dec 12, 2024</span>
+                          <span>{formatDate(blog?.published_at)}</span>
                         </p>
                         <h2 className="text-xl font-semibold">{blog?.title}</h2>
                         <h4 className="mb-8 text-base text-neutral-400">
-                          {blog?.shortDescription}
+                          {blog?.description}
                         </h4>
                         <div className="blog_tags flex w-full flex-wrap items-center gap-2">
-                          <div className="flex gap-1 rounded-lg bg-neutral-800 py-1 pr-2 pl-1 text-xs">
-                            <HugeiconsIcon icon={Tag01Icon} height={14} />
-                            <span>Flask</span>
-                          </div>
-                          <div className="flex gap-1 rounded-lg bg-neutral-800 py-1 pr-2 pl-1 text-xs">
-                            <HugeiconsIcon icon={Tag01Icon} height={14} />
-                            <span>Flask</span>
-                          </div>
+                          {blog?.tag_list &&
+                            Array.isArray(blog?.tag_list) &&
+                            blog?.tag_list?.map((tag, i) => (
+                              <div
+                                key={i}
+                                className="flex gap-1 rounded-lg bg-neutral-800 py-1 pr-2 pl-1 text-xs"
+                              >
+                                <HugeiconsIcon icon={Tag01Icon} height={14} />
+                                <span>{tag}</span>
+                              </div>
+                            ))}
                         </div>
-                        <Link href={"/"} className="read_article">
-                          Read article &nbsp;
-                          <HugeiconsIcon icon={ArrowUpRight01Icon} width={18} />
+                        <Link
+                          href={blog?.url}
+                          target="_blank"
+                          className="mt-auto"
+                        >
+                          <span className="read_article">
+                            Read article &nbsp;
+                            <HugeiconsIcon
+                              icon={ArrowUpRight01Icon}
+                              width={18}
+                            />
+                          </span>
                         </Link>
                       </div>
                     </div>

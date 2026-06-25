@@ -1,11 +1,13 @@
+"use client"
 import VariableProximity from "@/components/VariableProximity"
 import "./footer.scss"
 import Link from "next/link"
 import { Quote } from "lucide-react"
+import { handleScroll } from "../Header/Header"
 
 const Footer = () => {
   return (
-    <footer>
+    <footer id="footer_section">
       <div className="footer container mx-auto pt-10">
         <div className="container mx-auto flex flex-col">
           <div className="footer_brand pointer-events-none w-full select-none">
@@ -27,10 +29,21 @@ const Footer = () => {
             </p>
 
             <div className="footer_nav_links col-span-8 my-4 flex items-end justify-end gap-4 max-md:col-span-6 max-sm:col-span-12">
-              <Link href={"/"}>Home</Link>
-              <Link href={"/"}>Blogs</Link>
-              <Link href={"/"}>Works</Link>
-              <Link href={"/"}>Contact</Link>
+              <Link href="#hero_section" onClick={handleScroll}>
+                Home
+              </Link>
+              <Link href="#about_section" onClick={handleScroll}>
+                About
+              </Link>
+              <Link href="#works_section" onClick={handleScroll}>
+                Works
+              </Link>
+              <Link href="#blogs_section" onClick={handleScroll}>
+                Blogs
+              </Link>
+              <Link href="#contact_section" onClick={handleScroll}>
+                Contact
+              </Link>
             </div>
           </div>
           <p className="mt-10 mb-5 text-center text-xl tracking-[0.5px]">

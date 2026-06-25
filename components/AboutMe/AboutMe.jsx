@@ -36,7 +36,10 @@ const AboutMe = () => {
 
   return (
     <>
-      <section className="details_container container mx-auto pb-(--section-padding)">
+      <section
+        className="details_container container mx-auto pb-(--section-padding)"
+        id="about_section"
+      >
         <div className="grid w-full grid-cols-3 gap-5 max-md:grid-cols-1">
           <div className="iam_image col-span-1">
             <img src="images/IAM.png" alt="Iam" loading="lazy" />

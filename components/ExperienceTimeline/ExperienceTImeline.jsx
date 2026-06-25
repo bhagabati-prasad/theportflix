@@ -136,7 +136,7 @@ function ExperienceTimeline() {
     },
   ]
   return (
-    <section className="pt-(--section-padding)">
+    <section className="pt-(--section-padding)" id="experience_section">
       <div className="relative container mx-auto w-full overflow-clip">
         {/* <div className="grid grid-cols-12">
           <div className="col-span-2">
